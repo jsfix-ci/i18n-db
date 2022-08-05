@@ -1,4 +1,4 @@
-import parse from 'csv-parse/lib/sync';
+import parse from 'csv-parse/sync';
 import stringify from 'csv-stringify/lib/sync';
 
 import { InterchangeItem } from '../interfaces';
@@ -29,7 +29,7 @@ export function toCsv(
  * @param items Raw csv file content.
  */
 export function fromCsv(source: string, target: string, content: string) {
-  const rows: any[] = parse(content);
+  const rows: any[] = parse.parse(content);
   const first = rows[0];
 
   if (first && first[0] === 'Key') {
